@@ -10,12 +10,11 @@
 
     public class StationService : Service
     {
+        public StationRepository StationRepository { get; set; }
         public object Get(Station request)
         {
-            var apiClient = new HttpClient { BaseAddress = new Uri("https://api.trafiklab.se") };
-
-            var stationRepository = new StationRepository(apiClient);
-            return new StationResponse { Result = stationRepository.GetSites(request.Name) };
+         
+            return new StationResponse { Result = StationRepository.GetSites(request.Name) };
         }
     }
 }

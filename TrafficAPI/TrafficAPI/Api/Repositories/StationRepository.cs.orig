@@ -15,7 +15,11 @@
             this.ApiClient = apiClient;
         }
 
+<<<<<<< HEAD
         protected HttpClient ApiClient { get; set; }
+
+=======
+>>>>>>> 1af94f71fe72df02ca5f8e8a10621b7919b0c979
         #endregion
 
         #region Public Methods and Operators

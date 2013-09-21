@@ -13,7 +13,16 @@
         public TicketRepository TicketRepository { get; set; }
         public object Get(TicketInfo request)
         {
+<<<<<<< HEAD
+            var apiClient = new HttpClient { BaseAddress = new Uri("https://api.trafiklab.se") };
+
+            var priceRepository = new PriceRepository(10, 18);
+
+            var ticketRepository = new TicketRepository(apiClient, "0767201010", priceRepository);
+            return ticketRepository.GetTicketInfo(request.From, request.To, request.PriceCat);
+=======
             return TicketRepository.GetTicketInfo(request.From, request.To, request.PriceCat);
+>>>>>>> 1af94f71fe72df02ca5f8e8a10621b7919b0c979
         }
     }
 }
