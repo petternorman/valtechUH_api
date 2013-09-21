@@ -153,19 +153,20 @@
     <Compile Include="Api\Station.cs" />
     <Compile Include="Api\ResponseModels\StationResponse.cs" />
     <Compile Include="Api\StationService.cs" />
+    <Compile Include="Api\TicketService.cs" />
     <Compile Include="App_Start\AppHost.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Api\Repositories\StationRepository.cs" />
-    <Compile Include="Classes\TicketRepository.cs" />
+    <Compile Include="Api\Repositories\TicketRepository.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\TicketInfoModel.cs" />
+    <Compile Include="Api\TicketInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebServiceExamples.cs" />
   </ItemGroup>
@@ -295,7 +296,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>63855</DevelopmentServerPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:65378/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
