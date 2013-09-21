@@ -1,5 +1,6 @@
 ﻿using ServiceStack.ServiceInterface;
 using TrafficAPI.Api.Repositories;
+using TrafficAPI.Api.ResponseModels;
 
 namespace TrafficAPI.Api
 {
