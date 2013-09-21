@@ -1,5 +1,6 @@
 ﻿using ServiceStack.ServiceInterface;
 using TrafficAPI.Api.Repositories;
+using TrafficAPI.Api.ResponseModels;
 
 namespace TrafficAPI.Api
 {
@@ -8,7 +9,7 @@ namespace TrafficAPI.Api
         public object Get(TicketInfo request)
         {
             var ticketRepository = new TicketRepository();
-            return ticketRepository.GetTicketInfo(request.From, request.To);
+            return new TicketInfoResponse {Result = ticketRepository.GetTicketInfo(request.From, request.To)};
         }
     }
 }
