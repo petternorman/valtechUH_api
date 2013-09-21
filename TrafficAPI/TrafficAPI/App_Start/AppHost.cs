@@ -1,17 +1,8 @@
-using System;
-using System.Linq;
-using System.Configuration;
-using System.Collections.Generic;
 using System.Web.Mvc;
-using ServiceStack.Configuration;
-using ServiceStack.CacheAccess;
-using ServiceStack.CacheAccess.Providers;
 using ServiceStack.Mvc;
-using ServiceStack.OrmLite;
-using ServiceStack.ServiceInterface;
 using ServiceStack.ServiceInterface.Auth;
-using ServiceStack.ServiceInterface.ServiceModel;
 using ServiceStack.WebHost.Endpoints;
+using TrafficAPI.Api;
 using TrafficAPI.Api.Repositories;
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(TrafficAPI.App_Start.AppHost), "Start")]
@@ -39,7 +30,7 @@ namespace TrafficAPI.App_Start
 		: AppHostBase
 	{		
 		public AppHost() //Tell ServiceStack the name and where to find your web services
-            : base("Team Valtech @Uppsala Hackathon", typeof(HelloService).Assembly) { }
+            : base("Team Valtech @Uppsala Hackathon", typeof(StationService).Assembly) { }
 
 		public override void Configure(Funq.Container container)
 		{
