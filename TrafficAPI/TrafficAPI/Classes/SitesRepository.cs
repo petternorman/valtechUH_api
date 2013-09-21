@@ -1,13 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="SitesRepository.cs" company="">
-//   
-// </copyright>
-// <summary>
-//   The sites repository.
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
-
-namespace TrafficAPI.Classes
+﻿namespace TrafficAPI.Classes
 {
     using System;
     using System.Collections.Generic;
@@ -16,32 +7,18 @@ namespace TrafficAPI.Classes
     using Newtonsoft.Json;
 
     using TrafficAPI.Models;
-    using System.Linq;
-    /// <summary>
-    /// The sites repository.
-    /// </summary>
+
     public class SitesRepository
     {
         #region Public Properties
 
-        /// <summary>
-        /// Gets or sets the api client.
-        /// </summary>
         public HttpClient ApiClient { get; set; }
 
         #endregion
 
         #region Public Methods and Operators
 
-        /// <summary>
-        /// The get sites.
-        /// </summary>
-        /// <param name="location">
-        /// The location.
-        /// </param>
-        /// <returns>
-        /// The <see cref="Hafas"/>.
-        /// </returns>
+
         public List<SiteModel> GetSites(string locationText)
         {
             this.ApiClient = new HttpClient { BaseAddress = new Uri("https://api.trafiklab.se") };
