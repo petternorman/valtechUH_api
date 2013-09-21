@@ -13,8 +13,6 @@ using ServiceStack.WebHost.Endpoints;
 
 namespace TrafficAPI
 {
-    using TrafficAPI.Classes;
-
     //Request DTO
 	public class Hello
 	{
@@ -33,8 +31,8 @@ namespace TrafficAPI
 	{
 		public object Any(Hello request)
 		{
-		    var siteRepository = new SitesRepository();
-		    var test = siteRepository.GetSites("uppsa");
+            //var siteRepository = new SitesRepository();
+            //var test = siteRepository.GetSites("uppsa");
 
 			return new HelloResponse { Result = "Hello, " + request.Name };
 		}

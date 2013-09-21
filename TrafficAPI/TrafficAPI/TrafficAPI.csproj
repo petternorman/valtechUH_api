@@ -150,19 +150,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\Station.cs" />
+    <Compile Include="Api\ResponseModels\StationResponse.cs" />
+    <Compile Include="Api\StationService.cs" />
     <Compile Include="App_Start\AppHost.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Classes\SitesRepository.cs" />
-    <Compile Include="Classes\TicketRepository.cs" />
+    <Compile Include="Api\Repositories\StationRepository.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\TicketInfoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebServiceExamples.cs" />
   </ItemGroup>
@@ -272,6 +273,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Classes\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
