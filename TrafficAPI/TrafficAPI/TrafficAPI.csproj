@@ -150,6 +150,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\Repositories\DistanceRepository.cs" />
     <Compile Include="Api\Station.cs" />
     <Compile Include="Api\ResponseModels\StationResponse.cs" />
     <Compile Include="Api\StationService.cs" />
@@ -159,6 +160,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Api\Repositories\StationRepository.cs" />
+    <Compile Include="Classes\Price.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -273,7 +275,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Classes\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

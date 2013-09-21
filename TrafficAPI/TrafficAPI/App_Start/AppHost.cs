@@ -48,7 +48,7 @@ namespace TrafficAPI.App_Start
 			//Configure User Defined REST Paths
 			Routes
 			  .Add<Hello>("/hello")
-			  .Add<Hello>("/hello/{Name*}");
+              .Add<Hello>("/hello/{Name}/{Name2}");
 
 			//Uncomment to change the default ServiceStack configuration
 			//SetConfig(new EndpointHostConfig {

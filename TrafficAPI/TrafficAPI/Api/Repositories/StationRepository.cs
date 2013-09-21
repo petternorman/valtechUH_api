@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using Newtonsoft.Json;
+using System.Linq;
 
 namespace TrafficAPI.Api.Repositories
 {
@@ -10,6 +11,8 @@ namespace TrafficAPI.Api.Repositories
         #region Public Properties
 
         public HttpClient ApiClient { get; set; }
+
+        public DistanceRepository DistanceRepository { get; set; }
 
         #endregion
 
@@ -38,8 +41,12 @@ namespace TrafficAPI.Api.Repositories
                 siteList.Add(site);           
             }
 
+        
             return siteList;
         }
+
+
+   
 
         #endregion
 

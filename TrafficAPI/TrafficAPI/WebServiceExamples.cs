@@ -17,6 +17,8 @@ namespace TrafficAPI
 	public class Hello
 	{
 		public string Name { get; set; }
+
+        public string Name2 { get; set; }
 	}
 
 	//Response DTO
@@ -34,7 +36,7 @@ namespace TrafficAPI
             //var siteRepository = new SitesRepository();
             //var test = siteRepository.GetSites("uppsa");
 
-			return new HelloResponse { Result = "Hello, " + request.Name };
+			return new HelloResponse { Result = "Hello, " + request.Name + request.Name2};
 		}
 	}
 
