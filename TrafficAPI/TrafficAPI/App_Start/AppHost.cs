@@ -38,7 +38,7 @@ namespace TrafficAPI.App_Start
 		: AppHostBase
 	{		
 		public AppHost() //Tell ServiceStack the name and where to find your web services
-			: base("StarterTemplate ASP.NET Host", typeof(HelloService).Assembly) { }
+            : base("Team Valtech @Uppsala Hackathon", typeof(HelloService).Assembly) { }
 
 		public override void Configure(Funq.Container container)
 		{
