@@ -24,7 +24,7 @@ namespace TrafficAPI.Api.Repositories
 
             string path = string.Format(
                 "sl/realtid/GetSite.json?stationSearch={0}&key=72c26d46c3efc6d5158d1dfc89b5f6fd", locationText);
-            HttpResponseMessage response = this.ApiClient.GetAsync(path).Result;
+            HttpResponseMessage response = this.ApiClient.GetAsync(path).Result;                                
 
             if (!response.IsSuccessStatusCode)
             {

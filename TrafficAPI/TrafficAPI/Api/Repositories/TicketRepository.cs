@@ -46,9 +46,7 @@
 		            {
 		                MsgNumber = "0767201010",
 		                MsgText = priceInfo.TariffZones,
-		                Price = price.GetPrice(nrTariffRemark, priceCat),
-                        From = startLocation,
-                        To = endLocation
+		                Price = price.GetPrice(nrTariffRemark, priceCat)
 		            };
 
 		        return ticketInfo;
