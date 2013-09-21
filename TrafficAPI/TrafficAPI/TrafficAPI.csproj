@@ -150,6 +150,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\Station.cs" />
+    <Compile Include="Api\ResponseModels\StationResponse.cs" />
+    <Compile Include="Api\StationService.cs" />
     <Compile Include="App_Start\AppHost.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -270,6 +273,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Api\Repositories\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
