@@ -32,7 +32,7 @@ namespace TrafficAPI.Api.Repositories
             }
 
             string result = response.Content.ReadAsStringAsync().Result;
-            var siteInfo = JsonConvert.DeserializeObject<RootObjectJsonRespone>(result);
+            var siteInfo = JsonConvert.DeserializeObject<RootObjectJsonResponse>(result);
 
             var siteList = new List<Station>();
             foreach (var item in siteInfo.Hafas.Sites.Site)
@@ -45,29 +45,26 @@ namespace TrafficAPI.Api.Repositories
             return siteList;
         }
 
-
-   
-
         #endregion
 
-        public class RootObjectJsonRespone
+        public class RootObjectJsonResponse
         {
-            public HafasJsonRespone Hafas { get; set; }
+            public HafasJsonResponse Hafas { get; set; }
         }
 
-        public class HafasJsonRespone
+        public class HafasJsonResponse
         {
-            public SitesJsonRespone Sites { get; set; }
-
-        }
-
-        public class SitesJsonRespone
-        {
-            public List<SiteJsonRespone> Site { get; set; }
+            public SitesJsonResponse Sites { get; set; }
 
         }
 
-        public class SiteJsonRespone
+        public class SitesJsonResponse
+        {
+            public List<SiteJsonResponse> Site { get; set; }
+
+        }
+
+        public class SiteJsonResponse
         {
             public string Name { get; set; }
 
