@@ -1,14 +1,11 @@
-﻿namespace TrafficAPI.Classes
+﻿using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using Newtonsoft.Json;
+
+namespace TrafficAPI.Api.Repositories
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Net.Http;
-
-    using Newtonsoft.Json;
-
-    using TrafficAPI.Models;
-
-    public class SitesRepository
+    public class StationRepository
     {
         #region Public Properties
 
@@ -19,7 +16,7 @@
         #region Public Methods and Operators
 
 
-        public List<SiteModel> GetSites(string locationText)
+        public List<Station> GetSites(string locationText)
         {
             this.ApiClient = new HttpClient { BaseAddress = new Uri("https://api.trafiklab.se") };
 
@@ -34,10 +31,10 @@
             string result = response.Content.ReadAsStringAsync().Result;
             var siteInfo = JsonConvert.DeserializeObject<RootObjectJsonRespone>(result);
 
-            var siteList = new List<SiteModel>();
+            var siteList = new List<Station>();
             foreach (var item in siteInfo.Hafas.Sites.Site)
             {
-                var site = new SiteModel { Name = item.Name, Number = item.Number };
+                var site = new Station { Name = item.Name, Id = item.Number };
                 siteList.Add(site);           
             }
 

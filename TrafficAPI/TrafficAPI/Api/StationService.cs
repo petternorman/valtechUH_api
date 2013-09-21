@@ -1,5 +1,6 @@
 ﻿using ServiceStack.ServiceInterface;
 using TrafficAPI.Api.ResponseModels;
+using TrafficAPI.Api.Repositories;
 
 namespace TrafficAPI.Api
 {
@@ -7,7 +8,8 @@ namespace TrafficAPI.Api
     {
         public object Get(Station request)
         {
-            return new StationResponse {Result = "station"};
+            var stationRepository = new StationRepository();
+            return stationRepository.GetSites(request.Name);
         }
     }
 }
