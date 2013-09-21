@@ -6,10 +6,10 @@ namespace TrafficAPI.Api
 {
     public class StationService : Service
     {
+        public StationRepository StationRepository { get; set; }
         public object Get(Station request)
         {
-            var stationRepository = new StationRepository();
-            return new StationResponse {Result = stationRepository.GetSites(request.Name)};
+            return new StationResponse {Result = StationRepository.GetSites(request.Name)};
         }
     }
 }

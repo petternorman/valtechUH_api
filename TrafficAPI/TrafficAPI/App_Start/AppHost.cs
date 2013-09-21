@@ -12,6 +12,7 @@ using ServiceStack.ServiceInterface;
 using ServiceStack.ServiceInterface.Auth;
 using ServiceStack.ServiceInterface.ServiceModel;
 using ServiceStack.WebHost.Endpoints;
+using TrafficAPI.Api.Repositories;
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(TrafficAPI.App_Start.AppHost), "Start")]
 
@@ -46,9 +47,9 @@ namespace TrafficAPI.App_Start
 			ServiceStack.Text.JsConfig.EmitCamelCaseNames = true;
 		
 			//Configure User Defined REST Paths
-			Routes
-			  .Add<Hello>("/hello")
-              .Add<Hello>("/hello/{Name}/{Name2}");
+            //Routes
+            //  .Add<Hello>("/hello")
+            //  .Add<Hello>("/hello/{Name}/{Name2}");
 
 			//Uncomment to change the default ServiceStack configuration
 			//SetConfig(new EndpointHostConfig {
@@ -58,7 +59,9 @@ namespace TrafficAPI.App_Start
 			//ConfigureAuth(container);
 
 			//Register all your dependencies
-			container.Register(new TodoRepository());			
+		    container.Register(new DistanceRepository());
+		    container.Register(new StationRepository());
+		    container.Register(new TicketRepository());
 
 			//Set MVC to use the same Funq IOC as ServiceStack
 			ControllerBuilder.Current.SetControllerFactory(new FunqControllerFactory(container));

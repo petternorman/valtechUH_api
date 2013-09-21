@@ -6,10 +6,10 @@ namespace TrafficAPI.Api
 {
     public class TicketService : Service
     {
+        public TicketRepository TicketRepository { get; set; }
         public object Get(TicketInfo request)
         {
-            var ticketRepository = new TicketRepository();
-            return ticketRepository.GetTicketInfo(request.From, request.To, request.PriceCat);
+            return TicketRepository.GetTicketInfo(request.From, request.To, request.PriceCat);
         }
     }
 }

@@ -11,8 +11,6 @@ namespace TrafficAPI.Api.Repositories
 
         public HttpClient ApiClient { get; set; }
 
-        public DistanceRepository DistanceRepository { get; set; }
-
         #endregion
 
         #region Public Methods and Operators
