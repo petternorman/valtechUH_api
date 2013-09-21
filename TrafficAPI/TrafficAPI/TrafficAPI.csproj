@@ -150,7 +150,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Api\Repositories\DistanceRepository.cs" />
     <Compile Include="Api\ResponseModels\TicketInfoResponse.cs" />
     <Compile Include="Api\Station.cs" />
     <Compile Include="Api\ResponseModels\StationResponse.cs" />

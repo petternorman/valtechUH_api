@@ -1,33 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using Newtonsoft.Json;
-
-namespace TrafficAPI.Api.Repositories
+﻿namespace TrafficAPI.Api.Repositories
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Net.Http;
+
+    using Newtonsoft.Json;
+
     public class StationRepository
     {
         #region Public Properties
 
-        public HttpClient ApiClient { get; set; }
+        public StationRepository(HttpClient apiClient)
+        {
+            this.ApiClient = apiClient;
+        }
 
-        public DistanceRepository DistanceRepository { get; set; }
+        protected HttpClient ApiClient { get; set; }
 
         #endregion
 
         #region Public Methods and Operators
 
-
         public List<Station> GetSites(string locationText)
         {
-            this.ApiClient = new HttpClient { BaseAddress = new Uri("https://api.trafiklab.se") };
-
-            string path = string.Format(
+            var path = string.Format(
                 "sl/realtid/GetSite.json?stationSearch={0}&key=72c26d46c3efc6d5158d1dfc89b5f6fd", locationText);
-            HttpResponseMessage response = this.ApiClient.GetAsync(path).Result;                                
+            var response = this.ApiClient.GetAsync(path).Result;                                
 
             if (!response.IsSuccessStatusCode)
             {
+                return new List<Station>();
             }
 
             var result = response.Content.ReadAsStringAsync().Result;
@@ -52,7 +54,6 @@ namespace TrafficAPI.Api.Repositories
         
             return siteList;
         }
-
 
         #endregion
     }

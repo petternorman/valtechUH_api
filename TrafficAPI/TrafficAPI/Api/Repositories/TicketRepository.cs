@@ -11,13 +11,21 @@
 
     public class TicketRepository
 	{
-		public HttpClient ApiClient { get; set; }
+        public TicketRepository(HttpClient apiClinet, string phonenumber, PriceRepository priceRepository)
+        {
+            this.ApiClient = apiClinet;
+            this.PhoneNumber = phonenumber;
+            this.PriceRepository = priceRepository;
+        }
 
+		protected HttpClient ApiClient { get; set; }
 
+        protected String PhoneNumber { get; set; }
+
+        protected PriceRepository PriceRepository { get; set; }
 
 		public TicketInfo GetTicketInfo(int startLocation, int endLocation, string priceCat)
-		{
-			this.ApiClient = new HttpClient { BaseAddress = new Uri("https://api.trafiklab.se") };
+		{	
 			var path = string.Format("sl/reseplanerare.json?S={0}&Z={1}Lang=sv&key=54d1713582880d4187bab3fe743ca271", startLocation, endLocation);
 			var response = this.ApiClient.GetAsync(path).Result;
 
@@ -32,9 +40,6 @@
 		    {
 		        return new TicketInfo();
             }
-
-            var price = new PriceRepository(10, 18);
-
 		    var firstOrDefault = rootObject.HafasResponse.Trip.FirstOrDefault(x => x.Summary.PriceInfo != null);
 		    if (firstOrDefault != null)
 		    {
@@ -44,9 +49,9 @@
 
 		        var ticketInfo = new TicketInfo
 		            {
-		                MsgNumber = "0767201010",
-		                MsgText = priceInfo.TariffZones,
-		                Price = price.GetPrice(nrTariffRemark, priceCat)
+		                MsgNumber = this.PhoneNumber,
+		                MsgText = priceCat + priceInfo.TariffZones,
+		                Price = this.PriceRepository.GetPrice(nrTariffRemark, priceCat)
 		            };
 
 		        return ticketInfo;
@@ -73,16 +78,9 @@
 
 		public class Summary
 		{
-			public string DepartureDate { get; set; }
-			public string ArrivalDate { get; set; }
-			public int SubTrips { get; set; }
 			public int Changes { get; set; }
 			public string Duration { get; set; }
 			public PriceInfo PriceInfo { get; set; }
-			public string CO2 { get; set; }
-			public int MT6MessagesExist { get; set; }
-			public int RTUMessagesExist { get; set; }
-			public int RemarksExist { get; set; }
 		}
 
 		public class PriceInfo
