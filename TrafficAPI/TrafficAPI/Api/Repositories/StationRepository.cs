@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using Newtonsoft.Json;
-using System.Linq;
 
 namespace TrafficAPI.Api.Repositories
 {
@@ -31,44 +30,30 @@ namespace TrafficAPI.Api.Repositories
             {
             }
 
-            string result = response.Content.ReadAsStringAsync().Result;
-            var siteInfo = JsonConvert.DeserializeObject<RootObjectJsonResponse>(result);
+            var result = response.Content.ReadAsStringAsync().Result;
 
+            dynamic test = JsonConvert.DeserializeObject(result);
             var siteList = new List<Station>();
-            foreach (var item in siteInfo.Hafas.Sites.Site)
-            {
-                var site = new Station { Name = item.Name, Id = item.Number };
-                siteList.Add(site);           
-            }
 
+            var siteTest = test.Hafas.Sites.Site;
+            if (siteTest.GetType().ToString() == "Newtonsoft.Json.Linq.JObject")
+            {
+                var site = new Station { Name = siteTest.Name, Id = siteTest.Number };
+                siteList.Add(site);
+            }
+            else
+            {
+                foreach (var item in siteTest)
+                {
+                    var site = new Station { Name = item.Name, Id = item.Number };
+                    siteList.Add(site);
+                }
+            }
         
             return siteList;
         }
 
+
         #endregion
-
-        public class RootObjectJsonResponse
-        {
-            public HafasJsonResponse Hafas { get; set; }
-        }
-
-        public class HafasJsonResponse
-        {
-            public SitesJsonResponse Sites { get; set; }
-
-        }
-
-        public class SitesJsonResponse
-        {
-            public List<SiteJsonResponse> Site { get; set; }
-
-        }
-
-        public class SiteJsonResponse
-        {
-            public string Name { get; set; }
-
-            public int Number { get; set; }
-        }
     }
 }
