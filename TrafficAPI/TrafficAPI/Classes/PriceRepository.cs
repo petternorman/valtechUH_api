@@ -14,7 +14,7 @@
 
         public int GetPrice(int nrTickets, string cat)
         {
-            var priceCat = cat == "SLH" ? this.VPrice : this.RedPrice;
+            var priceCat = cat == "H" ? this.VPrice : this.RedPrice;
 
             return priceCat * nrTickets;
         }

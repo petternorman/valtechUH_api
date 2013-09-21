@@ -45,7 +45,7 @@
 		        var ticketInfo = new TicketInfo
 		            {
 		                MsgNumber = "0767201010",
-		                MsgText = priceInfo.TariffZones,
+		                MsgText = priceCat + priceInfo.TariffZones,
 		                Price = price.GetPrice(nrTariffRemark, priceCat),
                         From = startLocation,
                         To = endLocation
