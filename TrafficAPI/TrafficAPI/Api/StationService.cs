@@ -9,7 +9,7 @@ namespace TrafficAPI.Api
         public object Get(Station request)
         {
             var stationRepository = new StationRepository();
-            return stationRepository.GetSites(request.Name);
+            return new StationResponse {Result = stationRepository.GetSites(request.Name)};
         }
     }
 }
