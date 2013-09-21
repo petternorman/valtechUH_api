@@ -8,7 +8,7 @@ namespace TrafficAPI.Api
         public object Get(TicketInfo request)
         {
             var ticketRepository = new TicketRepository();
-            return ticketRepository.GetTicketInfo(request.From.Id, request.To.Id);
+            return ticketRepository.GetTicketInfo(request.From, request.To);
         }
     }
 }
