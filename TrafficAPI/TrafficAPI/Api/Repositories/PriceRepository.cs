@@ -1,4 +1,4 @@
-﻿namespace TrafficAPI.Classes
+namespace TrafficAPI.Api.Repositories
 {
     public class PriceRepository
     {

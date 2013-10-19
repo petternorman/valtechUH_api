@@ -1,12 +1,7 @@
 ﻿namespace TrafficAPI.Api
 {
-    using System;
-    using System.Net.Http;
-
     using ServiceStack.ServiceInterface;
-
-    using TrafficAPI.Api.Repositories;
-    using TrafficAPI.Classes;
+    using Repositories;
 
     public class TicketService : Service
     {

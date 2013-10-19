@@ -1,12 +1,8 @@
 ﻿namespace TrafficAPI.Api
 {
-    using System;
-    using System.Net.Http;
-
     using ServiceStack.ServiceInterface;
-
-    using TrafficAPI.Api.Repositories;
-    using TrafficAPI.Api.ResponseModels;
+    using Repositories;
+    using ResponseModels;
 
     public class StationService : Service
     {
