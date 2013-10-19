@@ -15,9 +15,7 @@ namespace TrafficAPI.App_Start
     using System;
     using System.Net.Http;
 
-    using TrafficAPI.Classes;
-
-	public class CustomUserSession : AuthUserSession
+    public class CustomUserSession : AuthUserSession
 	{
 		public string CustomProperty { get; set; }
 	}
@@ -38,8 +36,8 @@ namespace TrafficAPI.App_Start
             container.Register(stationRepository);
 
 
-            var priceRepository = new PriceRepository(10, 18);
-            var ticketRepository = new TicketRepository(apiClient, "0767201010", priceRepository);
+            var priceRepository = new PriceRepository(ApiSettings.PriceSLRed, ApiSettings.PriceSLRegular);
+            var ticketRepository = new TicketRepository(apiClient, ApiSettings.PhoneNumberSL, priceRepository);
             container.Register(ticketRepository);
 
 			ControllerBuilder.Current.SetControllerFactory(new FunqControllerFactory(container));

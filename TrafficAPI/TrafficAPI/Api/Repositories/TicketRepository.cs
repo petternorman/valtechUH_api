@@ -7,8 +7,6 @@
 
     using Newtonsoft.Json;
 
-    using TrafficAPI.Classes;
-
     public class TicketRepository
 	{
         public TicketRepository(HttpClient apiClinet, string phonenumber, PriceRepository priceRepository)
@@ -26,7 +24,7 @@
 
 		public TicketInfo GetTicketInfo(int startLocation, int endLocation, string priceCat)
 		{	
-			var path = string.Format("sl/reseplanerare.json?S={0}&Z={1}Lang=sv&key=54d1713582880d4187bab3fe743ca271", startLocation, endLocation);
+			var path = string.Format("sl/reseplanerare.json?S={0}&Z={1}Lang=sv&key={2}", startLocation, endLocation, ApiSettings.ApiKeySLReseplanerare);
 			var response = this.ApiClient.GetAsync(path).Result;
 
 			if (!response.IsSuccessStatusCode)

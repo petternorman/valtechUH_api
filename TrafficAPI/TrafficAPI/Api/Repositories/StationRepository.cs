@@ -23,7 +23,7 @@
         public List<Station> GetSites(string locationText)
         {
             var path = string.Format(
-                "sl/realtid/GetSite.json?stationSearch={0}&key=72c26d46c3efc6d5158d1dfc89b5f6fd", locationText);
+                "sl/realtid/GetSite.json?stationSearch={0}&key={1}", locationText, ApiSettings.ApiKeySLRealtid);
             var response = this.ApiClient.GetAsync(path).Result;                                
 
             if (!response.IsSuccessStatusCode)

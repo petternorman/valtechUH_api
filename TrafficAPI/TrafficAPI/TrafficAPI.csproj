@@ -150,6 +150,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\ApiSettings.cs" />
+    <Compile Include="Api\Repositories\PriceRepository.cs" />
     <Compile Include="Api\ResponseModels\TicketInfoResponse.cs" />
     <Compile Include="Api\Station.cs" />
     <Compile Include="Api\ResponseModels\StationResponse.cs" />
@@ -160,7 +162,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Api\Repositories\StationRepository.cs" />
-    <Compile Include="Classes\PriceRepository.cs" />
     <Compile Include="Api\Repositories\TicketRepository.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -228,6 +229,7 @@
     <Content Include="default.htm" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="AppSettings.config" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="jqunback-1.51.min.js" />
     <Content Include="README.txt" />
@@ -275,6 +277,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Classes\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
